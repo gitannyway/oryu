@@ -1,0 +1,15 @@
+name: Build Docker Image
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Building Docker Image
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          # 涓嬫柟鐨刵ame鏍煎紡涓猴細Docker Hub ID/鑷畾涔夐暅鍍忓悕绉?          
+          name: mailoll/okk
+          username: '${{ secrets.DOCKER_USERNAME }}'
+          password: '${{ secrets.DOCKER_PASSWORD }}'
